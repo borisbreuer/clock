@@ -1,3 +1,3 @@
 # HTML/JS-Clock
 
-A Clock only with HTML-Elements, JavaScript and CSS. No Canvas!
+A simple Clock with HTML-Elements, plain JavaScript and CSS.
