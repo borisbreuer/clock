@@ -1,37 +1,24 @@
 :root {
-  --bodyBackground: #000b11;
-  --borderColorFull: rgba(252, 166, 8, 1);
-  --borderColor: 252, 166, 8;
-  --pointColorFull: rgba(245, 222, 179, 1);
-  --pointColor: 38, 119, 191;
-  --shineFull: rgba(114, 175, 228, 1);
-  --shine: 114, 175, 228;
-  --specialFull: rgba(216, 41, 155, 1);
-  --special: 216, 41, 155;
-  --specialFull: rgb(189, 0, 0);
-  --special: 189, 0, 0;
-}
-:root {
-  --bodyBackground: rgba(245, 222, 179, 1);
-  --borderColorFull: rgba(161, 150, 128, 1);
-  --borderColor: 161, 150, 128;
-  --pointColorFull: rgb(56, 52, 43);
-  --pointColor: 56, 52, 43;
-  --shineFull: rgb(14, 10, 0);
-  --shine: 14, 10, 0;
-  --specialFull: rgba(14, 10, 0);
-  --special: 14, 10, 0;
-}
-:root {
   --bodyBackground: rgba(14, 10, 0, 1);
+  --clockBackground: rgba(255, 255, 255, 0.025);
+
   --borderColorFull: rgb(189, 177, 154);
   --borderColor: 189, 177, 154;
+
   --pointColorFull: rgb(109, 103, 91);
   --pointColor: 109, 103, 91;
-  --shineFull: rgb(245, 222, 179);
-  --shine: 245, 222, 179;
-  --specialFull: rgba(245, 222, 179);
-  --special: 245, 222, 179;
+
+  --sPointColorFull: rgb(143, 139, 132);
+  --sPointColor: 143, 139, 132;
+
+  --msPointColorFull: rgb(121, 116, 106);
+  --msPointColor: 121, 116, 106;
+
+  --specialPointFull: rgba(231, 218, 193);
+  --specialPoint: 231, 218, 193;
+
+  --textFull: rgba(231, 218, 193);
+  --text: 231, 218, 193;
 }
 
 body {
@@ -49,10 +36,12 @@ body {
   width: 550px;
   height: 550px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.025);
+  background: var(--clockBackground);
+  border: 1px solid rgba(var(--borderColor), 0.5);
   position: relative;
+  cursor: none;
 }
-.point {
+.hoursPoint {
   position: absolute;
   width: 6px;
   height: 6px;
@@ -60,7 +49,7 @@ body {
   transform: translate(-50%, -50%);
   background: rgba(var(--borderColor), 1);
 }
-.point:after {
+.hoursPoint:after {
   content: '';
   position: absolute;
   border: 1px solid rgba(var(--borderColor), 0.5);
@@ -71,27 +60,59 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.hoursPointBig {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(var(--borderColor), 1);
+}
+.hoursPointBig:after {
+  content: '';
+  position: absolute;
+  border: 1px solid rgba(var(--borderColor), 0.5);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
-.count {
+.minutes {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(var(--borderColor), 1);
+}
+
+.hoursText {
   position: absolute;
   transform: translate(-50%, -50%);
-  color: rgba(var(--shine), 1);
+  color: rgba(var(--text), 1);
   font-family: Calibri, 'Trebuchet MS', sans-serif;
   font-weight: bold;
   font-size: 1.5rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .hPointer {
   position: absolute;
   width: 200px;
   height: 200px;
-  border: 1px solid rgba(var(--borderColor), 0.5);
+  border: 1px solid rgba(var(--borderColor), 0.2);
   border-radius: 50%;
 }
 .hPointer:before {
   position: absolute;
   content: '';
   width: 100px;
-  border-top: 1px solid rgba(var(--borderColor), 0.2);
+  border-top: 1px solid rgba(var(--borderColor), 0.6);
   top: 50%;
   left: 50%;
   transform: translate(0, -50%);
@@ -99,27 +120,27 @@ body {
 .hPointer:after {
   position: absolute;
   content: '';
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: rgba(var(--special), 1);
+  background: rgba(var(--specialPoint), 1);
   top: 50%;
   left: 50%;
-  transform: translate(87.5px, -50%);
+  transform: translate(90px, -50%);
 }
 
 .mPointer {
-  border: 1px solid rgba(var(--borderColor), 0.5);
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
   position: absolute;
+  width: 375px;
+  height: 375px;
+  border: 1px solid rgba(var(--borderColor), 0.2);
+  border-radius: 50%;
 }
 .mPointer:before {
   position: absolute;
   content: '';
-  width: 200px;
-  border-top: 1px solid rgba(var(--borderColor), 0.3);
+  width: 187.5px;
+  border-top: 1px solid rgba(var(--borderColor), 0.6);
   top: 50%;
   left: 50%;
   transform: translate(0, -50%);
@@ -130,24 +151,24 @@ body {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: rgba(var(--special), 1);
+  background: rgba(var(--specialPoint), 1);
   top: 50%;
   left: 50%;
-  transform: translate(190px, -50%);
+  transform: translate(177.5px, -50%);
 }
 
 .sPointer {
   border: 1px solid rgba(var(--borderColor), 0.2);
-  height: 300px;
-  width: 300px;
+  height: 287.5px;
+  width: 287.5px;
   border-radius: 50%;
   position: absolute;
 }
 .sPointer:before {
   position: absolute;
   content: '';
-  width: 150px;
-  border-top: 1px dotted rgba(var(--borderColor), 0.5);
+  width: 143.75px;
+  border-top: 1px dashed rgba(var(--borderColor), 0.5);
   top: 50%;
   left: 50%;
   transform: translate(0, -50%);
@@ -158,26 +179,26 @@ body {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background: rgba(var(--pointColor), 1);
+  background: rgba(var(--sPointColor), 1);
   top: 50%;
   left: 50%;
-  transform: translate(142.5px, -50%);
+  transform: translate(136.25px, -50%);
 }
 
 .msPointer {
   border: 1px solid rgba(var(--borderColor), 0.2);
-  height: 100px;
-  width: 100px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
   position: absolute;
 }
 .msPointer:before {
   position: absolute;
   content: '';
-  width: 50px;
+  width: 25px;
   top: 50%;
   left: 50%;
-  border-top: 1px dotted rgba(var(--borderColor), 0.5);
+  border-top: 1px solid rgba(var(--borderColor), 0.5);
   transform: translate(0, -50%);
 }
 .msPointer:after {
@@ -186,13 +207,29 @@ body {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: rgba(var(--pointColor), 1);
+  background: rgba(var(--msPointColor), 1);
   top: 50%;
   left: 50%;
-  transform: translate(45px, -50%);
+  transform: translate(20px, -50%);
 }
 
 .middle {
+  background: rgba(var(--borderColor), 1);
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+.msDot {
+  background: rgba(var(--borderColor), 1);
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+.sDot {
   background: rgba(var(--borderColor), 1);
   height: 10px;
   width: 10px;
