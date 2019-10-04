@@ -27,10 +27,22 @@ body {
   align-items: center;
   margin: 0;
   padding: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background: var(--bodyBackground);
   position: relative;
+}
+p,
+a {
+  text-align: center;
+  color: rgb(109, 103, 91);
+  font-family: Calibri, 'Trebuchet MS', sans-serif;
+}
+a {
+  color: rgb(121, 116, 106);
+}
+a:hover {
+  text-decoration: none;
 }
 #clock {
   width: 550px;
