@@ -79,7 +79,6 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 .minutes {
   position: absolute;
   width: 2px;
@@ -88,7 +87,6 @@ body {
   transform: translate(-50%, -50%);
   background: rgba(var(--borderColor), 1);
 }
-
 .hoursText {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -128,7 +126,6 @@ body {
   left: 50%;
   transform: translate(90px, -50%);
 }
-
 .mPointer {
   position: absolute;
   width: 375px;
@@ -156,7 +153,6 @@ body {
   left: 50%;
   transform: translate(177.5px, -50%);
 }
-
 .sPointer {
   border: 1px solid rgba(var(--borderColor), 0.2);
   height: 287.5px;
@@ -184,7 +180,6 @@ body {
   left: 50%;
   transform: translate(136.25px, -50%);
 }
-
 .msPointer {
   border: 1px solid rgba(var(--borderColor), 0.2);
   height: 50px;
@@ -212,7 +207,6 @@ body {
   left: 50%;
   transform: translate(20px, -50%);
 }
-
 .middle {
   background: rgba(var(--borderColor), 1);
   height: 10px;

@@ -1,15 +1,17 @@
+/*---------------------------------------
+Author: Boris Breuer
+Website: https://www.borisbreuer.de
+GitHub: https://github.com/borisbreuer/clock
 
+/////////////////////////////////////////
 
-
-/*
 1° × π / 180
 360 / 12 = 30
 360 / 60 = 6
 Math.PI / 6
 x - Koordinate = cos(i * winkel) * radius
 y - Koordinate = sin(i * winkel) * radius
-  */
-
+---------------------------------------*/
 
 (function () {
   "use strict"
@@ -51,7 +53,6 @@ y - Koordinate = sin(i * winkel) * radius
   root.addEventListener('mouseleave', function () {
     continousOrNot = false;
   })
-
 
   for (let i = 0; i < 60; i++) {
     if (!(i % 5)) {
@@ -98,19 +99,12 @@ y - Koordinate = sin(i * winkel) * radius
   root.appendChild(mid);
   root.appendChild(msdot);
 
-
-
   function timer() {
     time = new Date();
     msec = time.getMilliseconds();
     sec = time.getSeconds();
     min = time.getMinutes();
     hou = time.getHours();
-
-    // msec = 0;
-    // sec = 30;
-    // min = 59;
-    // hou = 5;
 
     if (continousOrNot) {
       msDeg = (msec / 1000) * 360;
