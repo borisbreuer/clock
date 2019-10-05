@@ -1,0 +1,36 @@
+{
+  "name": "clock",
+  "version": "1.0.0",
+  "description": "A simple Clock with HTML-Elements, plain JavaScript and CSS.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "babel-preset-minify": "^0.5.1",
+    "concurrently": "^4.1.2",
+    "sass": "^1.23.0"
+  },
+  "scripts": {
+    "server": "live-server --open=index.html",
+    "sass": "sass --watch --no-source-map --style=compressed ./scss/style.scss ./css/style.min.css",
+    "minjs": "babel ./js/clock.js --presets minify -o ./js/clock.min.js",
+    "dev": "concurrently  \"npm run sass\" \"npm run server\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/borisbreuer/clock.git"
+  },
+  "keywords": [
+    "HTML",
+    "JavaScript",
+    "CSS"
+  ],
+  "author": "Boris Breuer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/borisbreuer/clock/issues"
+  },
+  "homepage": "https://github.com/borisbreuer/clock#readme"
+}
